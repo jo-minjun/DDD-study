@@ -1,0 +1,24 @@
+@startuml
+
+State "주문 전" as st1
+
+State "결제 대기 중" as st2
+State "상품 준비 중" as st3
+State "출고 완료됨" as st4
+State "배송 중" as st5
+State "배송 완료됨" as st6
+State "주문 취소됨" as st7
+
+[*] -right-> st1
+st1 -right-> st2: 주문함[결제안함]
+st1 -right-> st3: 주문함[결제함]
+st2 --> st3: 결제함
+st3 --> st4: 택배사에서 상품 수령함
+st4 --> st5: 배송 시작함
+st5 --> st6: 고객 수령함
+st2 -right-> st7: 주문 취소함
+st3 -right-> st7: 주문 취소함/결제 취소
+st6 -right-> [*]
+st7 --> [*]
+
+@enduml

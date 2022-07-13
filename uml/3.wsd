@@ -1,0 +1,63 @@
+@startuml
+
+object OrderState {
+}
+
+object Order {
+    +orderNumber:String
+    +totalAmounts:Money
+    --
+    +changeShipping(shipping:ShippingInfo)
+    +cancel()
+}
+
+object Orderer {
+    +name:String
+}
+
+object DeliveryStatus {
+}
+
+object ShippingInfo {
+    +address:Address
+    +message:String
+}
+
+object Address {
+    +zipCode:String
+    +address1:String
+    +address2:String
+}
+
+object Receiver {
+    +name:String
+    +phone:String
+}
+
+object PaymentInfo {
+}
+
+object OrderLine {
+    +price:Money
+    +quantity:int
+    --
+    +amounts():Money
+}
+
+object Product {
+    +name:String
+    +price:Money
+    +detail:String
+}
+
+OrderState -down- Order
+Orderer -right- Order
+DeliveryStatus -down- Order
+Order -down- ShippingInfo
+Order -down- PaymentInfo
+ShippingInfo -down- Address
+ShippingInfo -down- Receiver
+Order "1"-[norank]-"1..*" OrderLine
+OrderLine "0..1"-down-"1" Product
+
+@enduml

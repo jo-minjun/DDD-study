@@ -1,0 +1,29 @@
+@startuml
+
+package "자체 시스템" {
+    component 회원
+    component 혜택
+    component 주문
+    component 카탈로그
+    component 리뷰
+    component 정산
+}
+
+package "외부 물류" {
+    component 배송
+}
+
+package "외부 PG" {
+    component 결제
+}
+
+회원 -right- 혜택
+주문 -up- 회원
+주문 -up- 혜택
+주문 -left- 카탈로그
+주문 -right- 결제
+리뷰 -up- 카탈로그
+주문 -down- 배송
+정산 -up- 주문
+
+@enduml
