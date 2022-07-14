@@ -1,0 +1,22 @@
+@startuml
+
+actor client as a
+actor client as b
+
+frame 애플리케이션 {
+    rectangle "                                      표현                                      " as c
+    rectangle "                                      응용                                      " as d
+    rectangle "                                     도메인                                   " as e
+    rectangle "                               인프라스트럭처                               " as f
+}
+
+database DB as g
+
+a -down- c
+b -down- c
+c -down- d
+d -down- e
+e -down- f
+f -down- g
+
+@enduml
