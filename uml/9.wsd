@@ -1,0 +1,14 @@
+@startuml
+
+skinparam ranksep 20
+
+Rectangle "\t\t\t 표현 \t\t\t" as a
+Rectangle "\t\t\t 응용 \t\t\t" as b
+Rectangle "\t\t       도메인  \t\t\t" as c
+Rectangle "\t\t 인프라스트럭처 \t\t" as d
+
+a --> b
+b --> c
+c --> d
+
+@enduml

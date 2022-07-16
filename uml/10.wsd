@@ -1,0 +1,23 @@
+@startuml
+
+left to right direction
+
+Rectangle "응용" as a {
+    Rectangle "서비스" as d #CornflowerBlue
+}
+
+Rectangle "도메인" as b {
+    Rectangle "엔티티" as e #CornflowerBlue
+}
+
+Rectangle "인프라\n스트럭처" as c {
+    Rectangle "DB 모듈" as f #CornflowerBlue
+    Rectangle "룰 엔진" as g #CornflowerBlue
+}
+
+d ..> e
+d ..> f
+
+e ..> g
+
+@enduml

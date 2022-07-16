@@ -5,9 +5,9 @@ skinparam nodesep 20
 skinparam ranksep 60
 
 Rectangle "인프라\n스트럭처\n\n\n\n\n\n" as a
-Rectangle "도메인" as b #CornflowerBlue
-Rectangle "엔티티" as c #CornflowerBlue
-Rectangle "  밸류  " as d #CornflowerBlue
+Rectangle "  마리아DB  " as b #CornflowerBlue
+Rectangle " SMTP 서버 " as c #CornflowerBlue
+Rectangle "    카프카    " as d #CornflowerBlue
 
 a --> b
 a --> c
