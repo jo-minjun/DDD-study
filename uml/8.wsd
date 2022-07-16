@@ -1,0 +1,16 @@
+@startuml
+
+left to right direction
+skinparam nodesep 20
+skinparam ranksep 60
+
+Rectangle "인프라\n스트럭처\n\n\n\n\n\n" as a
+Rectangle "도메인" as b #CornflowerBlue
+Rectangle "엔티티" as c #CornflowerBlue
+Rectangle "  밸류  " as d #CornflowerBlue
+
+a --> b
+a --> c
+a --> d
+
+@enduml

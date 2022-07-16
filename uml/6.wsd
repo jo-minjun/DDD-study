@@ -1,0 +1,23 @@
+@startuml
+
+Rectangle "웹 브라우저" as a #CornflowerBlue
+
+Rectangle "표현" as b {
+    Rectangle "컨트롤러" as d #CornflowerBlue
+}
+
+Rectangle "응용" as c {
+    Rectangle "서비스" as e #CornflowerBlue
+}
+
+a -right-> d: HTTP 요청
+a <-right- d: HTTP 응답
+
+d -right-> e: 메서드 호출인자 전달
+d <-right- e: 메서드 리턴
+
+note bottom of d
+객체 변환 및 JSON 변환 수행
+end note
+
+@enduml

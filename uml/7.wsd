@@ -1,0 +1,16 @@
+@startuml
+
+Rectangle "응용" as a {
+    Rectangle "서비스" as c #CornflowerBlue
+}
+
+Rectangle "도메인" as b {
+    Rectangle "엔티티" as d #CornflowerBlue
+    Rectangle "  밸류  " as e #CornflowerBlue
+    d -[hidden]down- e
+}
+
+c -right-> d
+c -right-> e
+
+@enduml
