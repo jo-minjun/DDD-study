@@ -1,0 +1,36 @@
+@startuml
+
+autonumber
+
+actor "브라우저" as a
+participant "Controller" as b
+participant "App Service" as c
+participant "Domain Object" as d
+participant "Repository" as e
+
+a -> b: HTTP 요청
+activate b
+
+    b -> b: 요청 데이터를 응용 서비스에 맞게 변환
+    activate b
+    deactivate b
+
+    b -> c: 기능 실행
+    activate c
+
+        c -> e: find
+        activate e
+        c <- e: 도메인 객체 리턴
+        deactivate e
+
+        c -> d: 도메인로직 실행
+        activate d
+        deactivate d
+
+    b <- c: 리턴
+    deactivate c
+
+a <- b: HTTP 응답
+deactivate b
+
+@enduml
