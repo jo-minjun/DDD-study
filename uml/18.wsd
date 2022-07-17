@@ -1,0 +1,21 @@
+@startuml
+
+package "application" as a {
+    class "CancelOrderService" as b
+}
+
+package "domain" as c {
+    class "<ROOT>\nOrder" as d
+    interface "OrderRepository" as e
+}
+
+package "infra" as f {
+    class "JpaOrderRepository" as g
+}
+
+b .down.> d
+b -down-> e
+
+g .up.> e
+
+@enduml

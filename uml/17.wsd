@@ -1,0 +1,51 @@
+@startuml
+
+skinparam ClassAttributeIconSize 0
+
+class "<ROOT>\nOrder" as a {
+    -no: OrderNumber
+    -orderer: Orderer
+    -totalAmounts: Money
+    -orderLines: List<OrderLine>
+    +changeShippingInfo(newInfo: ShippingInfo)
+}
+
+class "ShippingInfo" as b {
+    -shippingAddress: Address
+    -receiver: Receiver
+}
+
+class "Address" as c {
+    -zipCode: String
+    -address1: String
+    -address2: String
+}
+
+class "Receiver" as d {
+    -name: String
+    -mobile: String
+    -email: String
+}
+
+class "OrderLine" as e {
+    -productId: ProductId
+    -quantity: int
+    -price: Money
+    -amounts: Money
+}
+
+class "Orderer" as f {
+    -name: String
+    -email: String
+}
+
+e -[hidden]down- f
+
+a -down-> b
+b -down-> c
+b -down-> d
+
+a *-right-> e
+a -right-> f
+
+@enduml
