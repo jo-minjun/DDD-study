@@ -1,0 +1,39 @@
+@startuml
+
+package "응용" as a {
+    class "OrderService" as b
+    interface "Notifier" as c
+}
+
+package "도메인" as d {
+    class "CalculateDiscountService" as e
+    interface "OrderRepository" as f
+    interface "RuleDiscounter" as g
+
+    e -[hidden]right- f
+    f -[hidden]down- g
+}
+
+package "인프라스트럭처" as h {
+    class "CompositeNotifier" as i #CornflowerBlue
+    class "JpaOrderRepository" as j #CornflowerBlue
+    class "DroolsRuleDiscounter" as k
+
+    i -[hidden]down- j
+    j -[hidden]down- k
+}
+
+a -[hidden]down- d
+a -[hidden]down- d
+
+b .right.> c
+b ..> e
+b ..> f
+
+e ..> g
+
+i .left.|> c
+j .left.|> f
+k .left.|> g
+
+@enduml

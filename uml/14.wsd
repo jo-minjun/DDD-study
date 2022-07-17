@@ -1,0 +1,13 @@
+@startuml
+
+top to bottom direction
+
+rectangle "\t 인프라스트럭처 \t" as a
+rectangle "\t\t 응용 \t\t" as b
+rectangle "\t\t 도메인 \t\t" as c
+
+a ..|> b
+a ..|> c
+b ..> c
+
+@enduml

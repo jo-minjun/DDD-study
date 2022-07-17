@@ -1,0 +1,15 @@
+@startuml
+
+Rectangle "고수준" as d {
+    Class "CalculateDiscountService" as a
+    Interface "RuleDiscounter" as b
+}
+
+Rectangle "저수준" as e {
+    Class "DroolsRuleDiscounter" as c
+}
+
+a .right.> b
+b <|.. c
+
+@enduml

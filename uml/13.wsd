@@ -1,0 +1,15 @@
+@startuml
+
+Rectangle "도메인" as d {
+    Class "CalculateDiscountService" as a
+}
+
+Rectangle "인프라" as e {
+    Interface "RuleEngine" as b
+    Class "DroolsRuleEngine" as c
+}
+
+a .right.> b
+b <|.. c
+
+@enduml

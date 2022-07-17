@@ -1,0 +1,10 @@
+@startuml
+
+Class "CalculateDiscountService" as a
+Interface "RuleDiscounter" as b
+Class "DroolsRuleDiscounter" as c
+
+a .right.> b
+b <|.. c
+
+@enduml
