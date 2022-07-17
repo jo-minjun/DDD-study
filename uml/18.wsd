@@ -16,6 +16,6 @@ package "infra" as f {
 b .down.> d
 b -down-> e
 
-g .up.> e
+g .up.|> e
 
 @enduml
