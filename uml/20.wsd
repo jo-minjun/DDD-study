@@ -1,0 +1,14 @@
+@startuml
+
+package "com.myshop" {
+    package "ui" as a {}
+    package "application" as b {}
+    package "domain" as c {}
+    package "infrastructure" as d {}
+}
+
+a .down.> b
+b .down.> c
+d .left.|> c
+
+@enduml

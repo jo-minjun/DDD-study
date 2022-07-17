@@ -1,0 +1,17 @@
+@startuml
+
+package "catalog" as a {
+    package "ui" as a1 {}
+    package "application" as b1 {}
+    package "domain" as c1 {
+        package "product" {}
+        package "category" {}
+    }
+    package "infrastructure" as d1 {}
+}
+
+a1 .down.> b1
+b1 .down.> c1
+c1 <|.down. d1
+
+@enduml

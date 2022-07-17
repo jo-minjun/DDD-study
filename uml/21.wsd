@@ -1,0 +1,38 @@
+@startuml
+
+package "com.myshop" {
+    package "catalog" as a {
+        package "ui" as a1 {}
+        package "application" as b1 {}
+        package "domain" as c1 {}
+        package "infrastructure" as d1 {}
+    }
+
+    package "order" as b {
+        package "ui" as a2 {}
+        package "application" as b2 {}
+        package "domain" as c2 {}
+        package "infrastructure" as d2 {}
+    }
+
+    package "member" as c {
+        package "ui" as a3 {}
+        package "application" as b3 {}
+        package "domain" as c3 {}
+        package "infrastructure" as d3 {}
+    }
+}
+
+a1 .down.> b1
+b1 .down.> c1
+c1 <|.down. d1
+
+a2 .down.> b2
+b2 .down.> c2
+c2 <|.down. d2
+
+a3 .down.> b3
+b3 .down.> c3
+c3 <|.down. d3
+
+@enduml
