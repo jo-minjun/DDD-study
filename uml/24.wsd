@@ -1,0 +1,32 @@
+@startuml
+
+rectangle "Address" as a
+rectangle "Shipping\nInfo" as b
+rectangle "Order" as c
+rectangle "Payment\nInfo" as d
+rectangle "Delivery\nTracking" as e
+rectangle "OrderLine" as f
+rectangle "Category" as g
+rectangle "Product" as h
+rectangle "Review" as i
+rectangle "Receiver" as j
+rectangle "Orderer" as k
+rectangle "Member" as l
+rectangle "Member\nGrade" as m
+
+a -down- b
+b -down- c
+c -down- d
+c -left- f
+f -up- e
+e -right- c
+f -left- h
+h -up- g
+h -down- i
+c -right- k
+b -right- j
+j -down- k
+k -right- l
+l -down- m
+
+@enduml

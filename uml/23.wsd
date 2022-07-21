@@ -1,0 +1,18 @@
+@startuml
+
+skinparam StorageFontSize 16
+skinparam nodesep 60
+skinparam ranksep 60
+
+storage "\n    상품    \n" as a #CornflowerBlue
+storage "\n    주문    \n" as b #CornflowerBlue
+storage "\n    회원    \n" as c #CornflowerBlue
+storage "\n 상품리뷰 \n" as d #CornflowerBlue
+storage "\n    결제    \n" as e #CornflowerBlue
+
+a <-right- b
+b -right-> c
+b -down-> e
+d -up-> a
+
+@enduml

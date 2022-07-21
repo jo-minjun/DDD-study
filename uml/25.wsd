@@ -1,0 +1,49 @@
+@startuml
+
+rectangle 분류 #CornflowerBlue {
+    rectangle "Category" as g
+}
+
+rectangle 상품 #CornflowerBlue {
+    rectangle "Product" as h
+}
+
+rectangle 리뷰 #CornflowerBlue {
+    rectangle "Review" as i
+}
+
+rectangle 주문 #CornflowerBlue {
+    rectangle "Address" as a
+    rectangle "Shipping\nInfo" as b
+    rectangle "Order" as c
+    rectangle "Receiver" as j
+    rectangle "Orderer" as k
+    rectangle "Delivery\nTracking" as e
+    rectangle "OrderLine" as f
+}
+
+rectangle 결제 #CornflowerBlue {
+    rectangle "Payment\nInfo" as d
+}
+
+rectangle 회원 #CornflowerBlue {
+    rectangle "Member" as l
+    rectangle "Member\nGrade" as m
+}
+
+a -down- b
+b -down- c
+c -down- d
+c -left- f
+f -up- e
+e -right- c
+f -- h
+h -up- g
+h -down- i
+c -right- k
+b -right- j
+j -down- k
+k -right- l
+l -down- m
+
+@enduml

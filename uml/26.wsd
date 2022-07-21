@@ -1,0 +1,16 @@
+@startuml
+
+actor "상품 담당자" as a
+actor "고객" as b
+usecase "제품 정보 변경" as c
+usecase "리뷰 내용 수정" as d
+rectangle Product
+rectangle Review
+
+a -right- c
+c -down-> Product
+
+b -left- d
+d -down-> Review
+
+@enduml
