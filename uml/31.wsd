@@ -1,0 +1,22 @@
+@startuml
+
+left to right direction
+hide method
+
+entity PRODUCT {
+    PRODUCT_ID
+}
+
+entity PRODUCT_CATEGORY {
+    PRODUCT_ID
+    CATEGORY_ID
+}
+
+entity CATEGORY {
+    CATEGORY_ID
+}
+
+PRODUCT ||--o{ PRODUCT_CATEGORY
+PRODUCT_CATEGORY }o--|| CATEGORY
+
+@enduml
