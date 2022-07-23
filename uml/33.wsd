@@ -1,0 +1,31 @@
+@startuml
+
+hide empty description
+
+state "스레드1" as a {
+    state "애그리거트 구함\n접근 잠금" as a1
+    state "애그리거트 수정" as a2
+    state "트랜잭션 커밋\n잠금 해제" as a3
+    state "커밋됨" as a4 #CornflowerBlue
+    state "커밋됨" as a5 #CornflowerBlue
+    
+    a1 -down-> a2
+    a2 -down-> a3
+    a3 -down-> a4
+    a4 -down-> a5
+}
+
+state "스레드2" as b {
+    state "애그리거트 구함 시도\n잠금으로 대기" as b1
+    state "잠금된 동안\n블로킹" as b2 #PaleVioletRed
+    state "애그리거트 구함\n접근 잠금" as b3
+    state "애그리거트 수정" as b4
+    state "트랜잭션 커밋\n잠금 해제" as b5
+
+    b1 -down-> b2
+    b2 -down-> b3
+    b3 -down-> b4
+    b4 -down-> b5
+}
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+
+actor 운영자
+participant 시스템
+actor 고객
+
+운영자 -> 시스템: 1: 주문 정보 조회
+activate 시스템
+운영자 <-- 시스템: 1.1: 정보 제공(배송지 포함)
+deactivate 시스템
+
+시스템 <- 고객: 2: 주문 정보 변경 폼 요청
+activate 시스템
+시스템 --> 고객: 2.1: 정보 수정 폼 제공
+deactivate 시스템
+시스템 <- 고객: 3: 배송지 변경 요청
+activate 시스템
+시스템 --> 고객: 3.1: 성공 결과 화면
+deactivate 시스템
+
+운영자 -> 시스템: 4: 배송 상태 변경 요청
+activate 시스템
+운영자 <-- 시스템: 4.1: 성공 결과 화면
+deactivate 시스템
+
+@enduml

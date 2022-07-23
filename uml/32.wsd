@@ -1,0 +1,21 @@
+@startuml
+
+state "운영자 스레드" as a {
+    state "주문 애그리거트 구함" as a1
+    state "배송 상태로 변경" as a2
+    state "트랜잭션 커밋" as a3
+    
+    a1 -down-> a2
+    a2 -down-> a3
+}
+
+state "고객 스레드" as b {
+    state "주문 애그리거트 구함" as b1
+    state "배송지 변경" as b2
+    state "트랜잭션 커밋" as b3
+
+    b1 -down-> b2
+    b2 -down-> b3
+}
+
+@enduml
