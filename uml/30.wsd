@@ -1,0 +1,19 @@
+@startuml
+
+allow_mixing
+
+interface OrderRepository
+class JpaOrderRepository
+database 오라클
+
+OrderRepository <|.down- JpaOrderRepository
+JpaOrderRepository -down-> 오라클
+
+interface ProductRepository
+class MongoProductRepository
+database 몽고DB
+
+ProductRepository <|.down- MongoProductRepository
+MongoProductRepository -down-> 몽고DB
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+
+skinparam ClassAttributeIconSize 0
+
+rectangle {
+    class Order {
+        -orderer: Orderer
+        ...
+    }
+
+    class Orderer {
+        -memberId: MemberId
+        -name: String
+    }
+
+    Order -[hidden]down- Orderer
+}
+
+rectangle {
+    class Member {
+        -id: MemberId
+    }
+}
+
+Orderer -right-> Member
+
+@enduml
