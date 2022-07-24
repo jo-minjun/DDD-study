@@ -1,0 +1,40 @@
+@startuml
+
+actor "사용자 A" as a
+participant 시스템 as c
+actor "사용자 B" as b
+
+activate a
+activate b
+
+a -> c: 1: 수정 폼 요청
+activate c
+    c -> c: 1.1: 오프라인 잠금 구함
+    activate c
+    deactivate c
+a <-- c: 1.2: 수정 폼 응답
+deactivate c
+
+b -> c: 2: 수정 폼 요청
+activate c
+    c -> c: 2.1: 오프라인 락 선점 실패
+    activate c
+    deactivate c
+b <-- c: 2.2: 에러 처리 결과 응답
+deactivate c
+
+a -> c: 3: 수정 요청
+activate c
+    c -> c: 3.1: 데이터 수정
+    activate c
+    deactivate c
+    c -> c: 3.2: 오프라인 잠금 해제
+    activate c
+    deactivate c
+a <-- c: 3.3: 수정 처리 결과 응답
+deactivate c
+
+deactivate a
+deactivate b
+
+@enduml

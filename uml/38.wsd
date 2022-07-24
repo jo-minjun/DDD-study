@@ -1,0 +1,20 @@
+@startuml
+
+hide empty attributes
+hide empty methods
+skinparam nodesep 100
+
+package domain {
+    class Order
+    interface DiscountCalculationService
+
+    Order .down.> DiscountCalculationService
+}
+
+package infra {
+    class RuleBasedDiscountCalculationService
+}
+
+DiscountCalculationService <|.right. RuleBasedDiscountCalculationService
+
+@enduml

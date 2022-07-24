@@ -1,0 +1,28 @@
+@startuml
+
+skinparam ClassAttributeIconSize 0
+hide empty methods
+hide empty attributes
+
+package order {
+    package application {
+        class OrderService {
+            +placeOrder(orderRequest:OrderRequest)
+        }
+    }
+
+    package domain #CornflowerBlue {
+        interface OrderRepository
+        class Order
+        class DiscountCalculationService
+    }
+
+    application -[hidden]down- domain
+}
+
+Order .right.> DiscountCalculationService
+OrderService --> OrderRepository
+OrderService --> DiscountCalculationService
+OrderService ..> Order
+
+@enduml
