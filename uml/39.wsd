@@ -1,0 +1,13 @@
+@startuml
+
+rectangle "회원 도메인" as a
+rectangle "주문 도메인" as b
+rectangle "배송 도메인" as c
+
+actor "같은 도메인" as d
+
+a -right-> d
+b -left-> d
+c -up-> d
+
+@enduml
