@@ -1,0 +1,14 @@
+@startuml
+
+rectangle "온라인 쇼핑 바운디드 컨텍스트" #CornflowerBlue {
+    rectangle "주문\n바운디드\n컨텍스트" as a
+    rectangle "카탈로그\n바운디드\n컨텍스트" as b
+    rectangle "회원\n바운디드\n컨텍스트" as c
+    rectangle "\n     ...     \n" as d
+}
+
+a -[hidden]right- b
+b -[hidden]right- c
+c -[hidden]right- d
+
+@enduml

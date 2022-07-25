@@ -1,0 +1,29 @@
+@startuml
+
+hide empty methods
+hide empty attributes
+
+rectangle "회원\n바운디드 컨텍스트" as a #CornflowerBlue {
+    class "<<Agg Root>>\nMember"
+}
+
+rectangle "카탈로그\n바운디드 컨텍스트" as b #CornflowerBlue {
+    class "<<Agg Root>>\nProduct" as e
+    class "<<Agg Root>>\nCategory" as f
+    e -right-> f
+}
+
+rectangle "주문\n바운디드 컨텍스트" as c #CornflowerBlue {
+    class "<<Agg Root>>\nOrderer"
+}
+
+rectangle "재고\n바운디드 컨텍스트" as d #CornflowerBlue {
+    class "<<Agg Root>>\nProduct"
+}
+
+a -[hidden]right- b
+a -[hidden]down- c
+c -[hidden]right- d
+b -[hidden]down- d
+
+@enduml

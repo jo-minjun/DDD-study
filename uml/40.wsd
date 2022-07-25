@@ -1,0 +1,19 @@
+@startuml
+
+rectangle "주문\n하위 도메인" {
+    rectangle "주문\n바운디드 컨텍스트" as a #CornflowerBlue
+    rectangle "결제 금액 계산\n바운디드 컨텍스트" as b #CornflowerBlue
+}
+
+rectangle "상품\n바운디드 컨텍스트" as c #CornflowerBlue {
+    rectangle "카탈로그\n하위 도메인"
+    rectangle "재고\n하위 도메인"
+}
+
+rectangle "서로 다른 팀에서 개발" as d
+rectangle "한 팀에서 개발" as e
+d -up-> a
+d -up-> b
+e -up-> c
+
+@enduml
