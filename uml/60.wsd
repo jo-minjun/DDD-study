@@ -1,0 +1,59 @@
+@startuml
+
+skinparam ClassAttributeIconSize 0
+hide empty methods
+hide empty attributes
+
+rectangle entity #line.dotted {
+    class "<<Entity>>\nOrder" as order {
+        -number:OrderNo
+        -orderer:Orderer
+        -shippingInfo:ShippingInfo
+    }
+
+    class "<<Value>>\nOrderer" as orderer {
+        -memberId:MemberId
+        -name:String
+    }
+
+    class "<<Value>>\nShippingInfo" as shippingInfo {
+        -message:String
+        -address:Address
+        -receiver:Receiver
+    }
+
+    class "<<Value>>\nAddress" as address {
+        -zipCode:String
+        -address1:String
+        -address2:String
+    }
+
+    class "<<Value>>\nReceiver" as receiver {
+        -name:String
+        -phone:String
+    }
+}
+
+object "<<table>>\nPURCHAS_ORDER" as purchas_order {
+    +ORDER_NO
+    +ORDERER_ID
+    +ORDER_NAME
+    +SHIPPING_MESSAGE
+    +SHIPPING_ZIPCODE
+    +SHIPPING_ADDR1
+    +SHIPPING_ADDR2
+    +ORDER_NAME
+    +ORDER_PHONE
+}
+
+orderer -[hidden]d- shippingInfo
+address -[hidden]r- receiver
+
+order -r-> orderer
+order -r-> shippingInfo
+shippingInfo -d-> address
+shippingInfo -d-> receiver
+
+entity <-l-> purchas_order
+
+@enduml

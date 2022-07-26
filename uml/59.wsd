@@ -1,0 +1,20 @@
+@startuml
+
+skinparam nodesep 80
+hide empty methods
+hide empty attributes
+
+package domain {
+    class Model
+    interface ModelRepository
+
+    Model .right.>ModelRepository
+}
+
+package infra {
+    class JpaModelRepository
+}
+
+ModelRepository <|.right. JpaModelRepository
+
+@enduml
