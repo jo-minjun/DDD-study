@@ -1,0 +1,12 @@
+@startuml
+
+skinparam nodesep 80
+
+rectangle "쇼핑몰 솔루션\n바운디드 컨텍스트" as a #CornflowerBlue
+rectangle "외부 ERP\n바운디드 컨텍스트" as b #CornflowerBlue
+rectangle "통합 시스템" as c #CornflowerBlue
+
+a <-right- c: 판매 정보 로딩
+c -right-> b: ERP에 입력
+
+@enduml

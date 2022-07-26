@@ -1,0 +1,15 @@
+@startuml
+
+rectangle "검색\n바운디드 컨텍스트" as a #CornflowerBlue
+rectangle "블로그\n바운디드 컨텍스트" as b #CornflowerBlue
+rectangle "카페\n바운디드 컨텍스트" as c #CornflowerBlue
+rectangle "게시판\n바운디드 컨텍스트" as d #CornflowerBlue
+
+interface "공개 호스트 서비스" as e
+
+a -down- e
+b -up-> e
+c -up-> e
+d -up-> e
+
+@enduml
