@@ -1,0 +1,12 @@
+@startuml
+
+skinparam nodesep 60
+
+rectangle "\n\t  브라우저   \t\n" as a
+rectangle "카탈로그\n바운디드 컨텍스트" as b #CornflowerBlue
+rectangle "리뷰\n바운디드 컨텍스트" as c #CornflowerBlue
+
+a "1. 제품 상세 정보 요청"<-right-> b: 2. HTML 응답
+a <-down-> c: 3. 리뷰 목록 Ajax 요청\n4. JSON 응답
+
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+
+skinparam nodesep 60
+
+rectangle "\n\t  브라우저   \t\n" as a
+rectangle "\n UI 서버 \n" as b #DodgerBlue
+rectangle "카탈로그\n바운디드 컨텍스트" as c #CornflowerBlue
+rectangle "리뷰\n바운디드 컨텍스트" as d #CornflowerBlue
+
+c -[hidden]down- d
+
+a <-right-> b: 1. 제품 정보 요청
+b <-right-> c: 2. 요청
+b <-right-> d: 3. 요청
+
+@enduml
