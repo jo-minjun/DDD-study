@@ -1,0 +1,25 @@
+@startuml
+
+skinparam ranksep 20
+
+rectangle "바운디드 컨텍스트" as ct1 #CornflowerBlue {
+    rectangle "\t\t\t\t\t\t     표현 영역   \t\t\t\t\t\t\t" as a1
+    rectangle "\t\t   응용 서비스 \t\t\t" as b1
+    rectangle "\t\t     도메인   \t\t\t" as c1
+    rectangle "\t\t 인프라스트럭처 \t\t" as d1
+    database "\t   DBMS     \t" as e1
+
+    rectangle "\t\t      서비스    \t\t\t" as b2
+    rectangle "\t\t        DAO      \t\t\t\n\t  조회 전용 데이터 모델" as c2
+
+    a1 -[hidden]down- b1
+    b1 -[hidden]down- c1
+    c1 -[hidden]down- d1
+    d1 -[hidden]- e1
+
+    a1 -[hidden]down- b2
+    b2 -[hidden]down- c2
+    c2 -[hidden]- e1
+}
+
+@enduml
