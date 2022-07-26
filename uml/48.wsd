@@ -1,0 +1,37 @@
+@startuml
+
+allow_mixing
+skinparam ClassAttributeIconSize 0
+skinparam nodesep 120
+skinparam RectangleBorderColor transparent
+skinparam RectangleBackgroundColor transparent
+hide empty methods
+hide empty attributes
+
+package domain {
+    class ProductId
+    class Product
+    interface "ProductRecommendationService" as prs {
+        +getRecommendationOf(id:ProductId):List<Product>
+    }
+
+    prs -[hidden]up- Product
+    prs -[hidden]up- ProductId
+}
+
+package infra {
+    class "RecSystemClient" as rsc
+}
+
+component "외부 추천 시스템" as oprs
+
+rectangle "도메인 관점에서\n인터페이스 정의" as note1
+note1 -left-> prs
+
+rectangle "도메인 모델과 외부 시스템 간의\n모델 변환 처리" as note2
+note2 -up-> rsc
+
+rsc .right.> oprs
+rsc .up.|> prs
+
+@enduml

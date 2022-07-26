@@ -1,0 +1,14 @@
+@startuml
+
+hide empty methods
+hide empty attributes
+skinparam ClassAttributeIconSize 0
+
+class ActiveLog {
+    +itemId
+    +userId
+    +activeType
+    +actionDate
+}
+
+@enduml

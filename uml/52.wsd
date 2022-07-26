@@ -1,0 +1,26 @@
+@startuml
+
+skinparam nodesep 100
+skinparam ranksep 10
+
+rectangle "카탈로그 개발팀의 관리 영역" as a #line.dashed {
+    rectangle "카탈로그\n바운디드 컨텍스트" as b #CornflowerBlue
+    rectangle "메시지\n시스템" as c
+
+    b -right-> c: 출판
+}
+
+rectangle "외부 바운디드 컨텍스트" #line.dashed {
+    rectangle "A 바운디드 컨텍스트" as d #CornflowerBlue
+    rectangle "B 바운디드 컨텍스트" as e #CornflowerBlue
+    rectangle "C 바운디드 컨텍스트" as f #CornflowerBlue
+}
+
+d -[hidden]down- e
+e -[hidden]down- f
+
+c -right-> d
+c -right-> e
+c -right-> f
+
+@enduml

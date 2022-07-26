@@ -1,0 +1,29 @@
+@startuml
+
+hide empty methods
+hide empty attributes
+skinparam ClassAttributeIconSize 0
+
+class ViewLog {
+    +memberId
+    +productid
+    +timestamp
+}
+
+class OrderLog {
+    +memberId
+    +orderNumber
+    +timestamp
+    +totalAmounts
+}
+
+class OrderLineLog {
+    +memberId
+    +productid
+    +timestamp
+}
+
+ViewLog -[hidden]right- OrderLog
+OrderLog *-right- OrderLineLog
+
+@enduml

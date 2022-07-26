@@ -1,0 +1,18 @@
+@startuml
+
+allow_mixing
+skinparam ClassAttributeIconSize 0
+hide empty methods
+hide empty attributes
+
+class RecSystemClient
+component "외부 추천 시스템" as ers
+class Translator {
+    +translateToProduct(recItem:RecommendationItem):Product
+    +toItemId(productId:ProductId):String
+}
+
+RecSystemClient .right.> ers: HTTP REST API 호출
+RecSystemClient -down-> Translator
+
+@enduml

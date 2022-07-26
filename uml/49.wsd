@@ -1,0 +1,10 @@
+@startuml
+
+rectangle "카탈로그\n바운디드 컨텍스트" as a #CornflowerBlue
+rectangle "메시지\n시스템" as b
+rectangle "추천\n바운디드 컨텍스트" as c #CornflowerBlue
+
+a -right-> b: 이력을 메시지 \n형식으로 추가
+c -left-> b: 큐에서 메시지를\n가져옴
+
+@enduml
