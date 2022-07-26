@@ -1,0 +1,32 @@
+@startuml
+
+component "Catalogue" as c {
+    port OHS as cohs1
+    port ACL as cacl1
+}
+
+component "Order" as o {
+    port ACL as oacl1
+    port ACL as oacl2
+    port ACL as oacl3
+}
+
+component "Logistics" as l {
+    port OHS as lohs1
+}
+
+component "Review" as r {
+    port OHS as rohs1
+}
+
+component "Member" as m {
+    port OHS as mohs1
+}
+
+cacl1 -down- rohs1
+cohs1 -right- oacl1
+
+oacl2 -down- mohs1
+oacl3 -right- lohs1
+
+@enduml
