@@ -1,0 +1,35 @@
+@startuml
+
+hide empty methods
+hide empty attributes
+skinparam ClassAttributeIconSize 0
+
+class "<<Entity>>\nOrder" as a {
+    -orderLines:List<OrderLine>
+}
+
+class "<<Value>>\nOrderLine" as b {
+    -productId:ProductId
+    -price:Money
+    -quantity:int
+    -amounts:Money
+}
+
+a *-d-> b
+
+object "PURCHASE_ORDER" as c {
+    order_number
+}
+
+object "ORDER_LINE" as d {
+    order_number
+    line_idx
+    product_id
+    price
+    quantity
+    amounts
+}
+
+c |o-d-o{ d
+
+@enduml

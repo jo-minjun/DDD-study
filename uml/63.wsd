@@ -1,0 +1,20 @@
+@startuml
+
+hide empty methods
+hide empty attributes
+skinparam ClassAttributeIconSize 0
+
+class "Article" as a {
+    -id:Long
+    -title:String
+    -content:ArticleContent
+}
+
+class "ArticleContent" as b {
+    -content:String
+    -contentType:String
+}
+
+a -r-> b
+
+@enduml
