@@ -1,0 +1,35 @@
+@startuml
+
+hide empty methods
+hide empty attributes
+skinparam ClassAttributeIconSize 0
+
+class "Product" as a {
+    -id:ProductId
+    -images:List<Image>
+}
+
+class "Image" as b {
+    -path
+    +getURL():String
+    +hasThumbnail():boolean
+    +getThumbnail():String
+}
+
+class "InternalImage" as c {
+    +getURL():String
+    +hasThumbnail():boolean
+    +getThumbnail():String
+}
+
+class "ExternalImage" as d {
+    +getURL():String
+    +hasThumbnail():boolean
+    +getThumbnail():String
+}
+
+a *-r-> b
+b <|-d- c
+b <|-d- d
+
+@enduml

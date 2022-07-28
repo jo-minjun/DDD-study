@@ -1,0 +1,18 @@
+@startuml
+
+object "<<table>>\nPRODUCT" as a {
+    PRODUCT_ID
+}
+
+object "<<table>>\nIMAGE" as b {
+    IMAGE_ID
+    PRODUCT_ID
+    LIST_IDX
+    IMAGE_TYPE
+    IMAGE_PATH
+    UPLOAD_TIME
+}
+
+a ||-r-o{ b
+
+@enduml
