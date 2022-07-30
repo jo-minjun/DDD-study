@@ -1,0 +1,13 @@
+@startuml
+
+actor actor
+
+rectangle "\n표현\n영역\n" as a
+rectangle "\n응용\n영역\n" as b
+rectangle "\n도메인\n영역\n" as c #CornflowerBlue
+
+actor -r-> a
+a -r-> b
+b -r-> c
+
+@enduml
