@@ -1,0 +1,10 @@
+@startuml
+
+rectangle "이벤트 생성 주체" as a #CornflowerBlue
+rectangle "이벤트 디스패처\n(이벤트 퍼블리셔)" as b #CornflowerBlue
+rectangle "이벤트 핸들러\n(이벤트 구독자)" as c #CornflowerBlue
+
+a -> b: 이벤트
+b -> c: 이벤트
+
+@enduml

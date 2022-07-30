@@ -1,0 +1,23 @@
+@startuml
+
+skinparam ranksep 20
+skinparam nodesep 100
+
+rectangle "Order" as a #CornflowerBlue
+rectangle "이벤트 디스패쳐" as b #CornflowerBlue
+
+rectangle "OrderCanceled\nEventHandler" as c #CornflowerBlue
+rectangle "환불\n처리" as d #CornflowerBlue
+
+rectangle "OrderCanceled\nEventHandler" as e #CornflowerBlue
+rectangle "이메일\n통지" as f #CornflowerBlue
+
+a -r-> b: OrderCanceled\nEvent
+
+b -u-> c: OrderCanceled\nEvent
+c -r-> d
+
+b -d-> e: OrderCanceled\nEvent
+e -r-> f
+
+@enduml

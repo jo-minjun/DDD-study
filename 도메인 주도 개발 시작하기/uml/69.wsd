@@ -1,0 +1,12 @@
+@startuml
+
+rectangle "Order" as a #CornflowerBlue
+rectangle "이벤트 디스패쳐" as b #CornflowerBlue
+rectangle "OrderCanceled\nEventHandler" as c #CornflowerBlue
+rectangle "RefundService" as d #CornflowerBlue
+
+a -r-> b: OrderCanceled\nEvent
+b -r-> c: OrderCanceled\nEvent
+c -d-> d
+
+@enduml

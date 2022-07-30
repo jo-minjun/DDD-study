@@ -1,0 +1,31 @@
+@startuml
+
+autonumber
+
+participant "응용 서비스" as a
+participant "도메인" as b
+participant "Events" as c
+participant "ApplicationEventPulisher" as d
+participant "이벤트 핸들러" as e
+
+activate a
+
+a -> b: 도메인 기능
+activate b
+    b -> c: raise(evt)
+    activate c
+        c -> d: publishEvent(evt)
+        activate d
+            d -> e: @EventListener\n메서드 실행
+            activate e
+            deactivate e
+            c <-- d
+        deactivate d
+    b <-- c
+    deactivate c
+a <-- b
+deactivate b
+
+deactivate a
+
+@enduml

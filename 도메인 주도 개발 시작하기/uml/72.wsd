@@ -1,0 +1,21 @@
+@startuml
+
+rectangle "트랜잭션 범위" as a #line.dotted {
+    rectangle Order #CornflowerBlue
+    rectangle Events #CornflowerBlue
+
+    Order -r-> Events: Event.raise()
+}
+
+rectangle "트랜잭션 범위" as b #line.dotted {
+    rectangle "메시징\n시스템" as c #CornflowerBlue
+    rectangle "Message\nListener" as d #CornflowerBlue
+    rectangle "이벤트\n핸들러" as e #CornflowerBlue
+
+    c -r-> d: onMessage()
+    d -r-> e: handle()
+}
+
+Events -d-> c
+
+@enduml

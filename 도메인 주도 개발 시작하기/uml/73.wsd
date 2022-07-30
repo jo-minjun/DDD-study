@@ -1,0 +1,21 @@
+@startuml
+
+rectangle "트랜잭션 범위" as a #line.dotted {
+    rectangle "도메인" as b #CornflowerBlue
+    rectangle "이벤트 디스패처" as c #CornflowerBlue
+    rectangle "로컬 핸들러" as d #CornflowerBlue
+    database "저장소" as e
+
+    b -r-> c
+    c -r-> d
+    d -d-> e
+}
+
+rectangle "별도 프로그램" as f #CornflowerBlue
+rectangle "이벤트 핸들러" as g #CornflowerBlue
+
+f -l-> g
+
+e -d-> f
+
+@enduml
