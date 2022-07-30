@@ -1,0 +1,32 @@
+@startuml
+
+skinparam ranksep 25
+
+rectangle CQRS #CornflowerBlue {
+    rectangle "조회(Query) 모델" as q #white {
+        rectangle "A" as a1 #RoyalBlue
+        rectangle "B" as b1 #RoyalBlue
+        rectangle "C" as c1 #RoyalBlue
+        a1 -r-> b1
+        c1 -u-> a1
+        c1 -u-> b1
+    }
+
+    rectangle "명령(Command) 모델" as c #white {
+        rectangle "A" as a2 #RoyalBlue
+        rectangle "B" as b2 #RoyalBlue
+        rectangle "C" as c2 #RoyalBlue
+        a2 -r-> b2
+        c2 -u-> b2
+    }
+}
+rectangle "\t  UI    \t" as UI
+database "\t  DB    \t" as DB
+
+UI <-- q: 조회 모델을 \n이용해서 표현 계층에\n 데이터 출력
+UI --> c: 애플리케이션은\n 변경 요청을 \n명령 모델로 처리
+DB -up-> q
+DB <-up- c
+CQRS -[hidden]d- DB
+
+@enduml

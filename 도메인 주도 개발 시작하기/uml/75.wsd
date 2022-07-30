@@ -1,0 +1,29 @@
+@startuml
+
+skinparam ranksep 25
+
+rectangle "명령 모델" as command {
+    rectangle "     컨트롤러     " as a
+    rectangle "   응용 서비스   " as b
+    rectangle "      도메인      " as c
+    rectangle "인프라\n(JPA 리포지터리 구현)" as d
+    database "   RDBMS   " as e
+
+    a -d-> b
+    b -d-> c
+    c <-d- d
+    d -d-> e
+}
+
+rectangle "조회 모델" as query {
+    rectangle "     컨트롤러     " as f
+    rectangle "      DTO/DAO      " as g
+    rectangle "인프라\n(NoSQL: DAO 구현)" as h
+    database "   NoSQL   " as i
+
+    f -d-> g
+    g <-d- h
+    h -d--> i
+}
+
+@enduml
