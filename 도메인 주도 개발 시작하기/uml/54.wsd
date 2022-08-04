@@ -5,6 +5,6 @@ skinparam nodesep 200
 rectangle "카탈로그\n바운디드 컨텍스트" as a #CornflowerBlue
 rectangle "추천\n바운디드 컨텍스트" as b #CornflowerBlue
 
-a "하류"<-right->"상류" b: 고객/공급자 관계
+a "하류"-right->"상류" b: 고객/공급자 관계
 
 @enduml
